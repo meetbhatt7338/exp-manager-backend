@@ -2,11 +2,22 @@ const roleModel = require("../models/RoleModel");
 
 const addRole = async (req, res) => {
   try {
+
+
     const savedRole = await roleModel.create(req.body);
-    res.status(201).json({
-      status: "success",
-      data: savedRole,
-    });
+
+    if (savedRole) {
+      res.status(201).json({
+        status: "success",
+        data: savedRole,
+      });
+    } else {
+      res.status(404).json({
+        status: "fail",
+        message: "Role not getting by reqbody"
+      });
+    }
+
   } catch (err) {
     res.status(400).json({
       status: "fail",
@@ -31,5 +42,5 @@ const getRoles = async (req, res) => {
 
 module.exports = {
   addRole,
-    getRoles,
+  getRoles,
 };
