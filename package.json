@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build":"npm run build",
-    "start":"node app.js"
+    "build": "npm run build",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
