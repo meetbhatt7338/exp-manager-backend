@@ -25,6 +25,9 @@ const  userRout = require('./routes/UserRoute')
 const  roleRout = require('./routes/RoleRoute')
 const expenseRout = require('./routes/ExpenseRoute')
 const categoryRout = require('./routes/ExpenseCategoryRoute')
+const goalRout = require('./routes/GoalRoute')
+const revenueRoute = require('./routes/RevenueRoute')
+const profileRoute = require('./routes/ProfilePicRoute')
 
 
 
@@ -33,6 +36,9 @@ app.use('/api',userRout)
 app.use('/api',roleRout)
 app.use('/api',expenseRout)
 app.use('/api',categoryRout)
+app.use('/api',goalRout)
+app.use('/api',revenueRoute)
+app.use('/api',profileRoute)
 
 
 
