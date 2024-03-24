@@ -15,7 +15,8 @@ app.use(cors());
 
 //database connection part
 // mongoose.connect('mongodb://127.0.0.1:27017/exp_manager')
-mongoose.connect('mongodb+srv://bhattmeet9099:meet@cluster0.wb7kyr3.mongodb.net/exp_manager').then(() => {
+mongoose.connect('mongodb+srv://bhattmeet9099:meet@cluster0.wb7kyr3.mongodb.net/exp_manager')
+.then(() => {
     console.log('Database connected');
 }).catch((err) =>
     console.log('Error at database connection', err))

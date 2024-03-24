@@ -99,8 +99,19 @@ const loginUser = async (req, res) => {
 
   }
 };
+
+const employeeExist = async(req,res)=>{
+  
+  try {
+      const user = await userModel.findOne({email:req.body.email})
+       console.log(user)
+    } catch (error) {
+      
+    }
+}
 module.exports = {
   createUser,
   getAllUsersById,
   loginUser,
+  employeeExist
 };

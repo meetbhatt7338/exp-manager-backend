@@ -204,7 +204,7 @@ const getExpenseByGoalId = async(req,res)=>{
 }
 
 //filter
-const filterExpenseByname=async(req,res)=>{
+const filterExpenseByname = async(req,res)=>{
     // console.log('req.query',req.query);
     try {
         // const expenses  = await expenseModel.find({status: true}).populate('category').populate('user');
