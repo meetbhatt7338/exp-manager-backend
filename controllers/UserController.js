@@ -104,14 +104,53 @@ const employeeExist = async(req,res)=>{
   
   try {
       const user = await userModel.findOne({email:req.body.email})
-       console.log(user)
+      // console.log("uusser",user)
+      if(user != undefined || null){
+        res.status(201).json({
+          data : user,
+          status:"success",
+          message:"User found"
+        })
+      }else{
+        res.status(404).json({
+          data : [],
+          status:"fail",
+          message:"User Not found"
+        })
+      }
     } catch (error) {
-      
+      res.status(500).json({
+       
+        status:"fail",
+        message:error.message
+      })
     }
+}
+
+const resetPassword = async(req,res)=>{
+  const hashedPassword = await passwordUtil.hashPassword(req.body.password);
+  try {
+    const upadatedPass  = await userModel.findOneAndUpdate({email:req.body.email},{password:hashedPassword},{new:true})
+   
+    res.status(201).json({
+      data : upadatedPass,
+      status:"success",
+      message:"Password updated successfully"
+    })
+   
+   
+  } catch (error) {
+    res.status(500).json({
+      data : upadatedPass,
+      status:"fail",
+      message:"Password updatinmg error"
+    })
+  }
 }
 module.exports = {
   createUser,
   getAllUsersById,
   loginUser,
-  employeeExist
+  employeeExist,
+  resetPassword,
 };
